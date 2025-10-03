@@ -54,8 +54,10 @@ Build an AI data analyst assistant that accepts user-provided CSVs, converses in
 ## Tech Stack Options
 - **Frontend**: React + TypeScript, Next.js or Vite; UI lib (Mantine/Chakra/Tailwind);
   charts: Vega-Lite (via react-vega) or Plotly.
-- **Backend**: Python (FastAPI) or Node (Express/Nest). For data: Pandas/Polars (Python) or DuckDB/WASM.
-- **Insight/LLM**: OpenAI-compatible API or local model via server; prompt templates; guardrails.
+- **Backend**: Python with **Streamlit** for the UI framework and **Pydantic-AI** for agent orchestration. 
+  - Data processing: Pandas/Polars
+  - Reference implementation: [Building a Data Analyst Agent with Streamlit and Pydantic-AI](https://medium.com/data-science-collective/building-a-data-analyst-agent-with-streamlit-and-pydantic-ai-step-by-step-guide-part-1-6403fd2ec243)
+- **Insight/LLM**: OpenAI-compatible API or local model via server; prompt templates; guardrails managed through Pydantic-AI.
 - **Storage (optional/ephemeral)**: In-memory or temp files; S3-like for larger files if needed.
 
 ## Data Handling & Security
