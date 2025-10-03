@@ -7,6 +7,9 @@ app that is an assistant, user gives csv, creates graphs and valuable insights.
 have a frontend that is like a chatbot
  
 ---
+
+## important note
+this is for a hackathon please just do the bare minimum to get things done. wE DON'T NEED IT TO BE PRODUCTION WORTHY BUT IT SHOULD BE BEAUTIFUL AND EASY TO USE.
  
 ## Vision
 Build an AI data analyst assistant that accepts user-provided CSVs, converses in a chat-like UI, generates relevant charts automatically, and surfaces clear, actionable insights.
@@ -52,12 +55,15 @@ Build an AI data analyst assistant that accepts user-provided CSVs, converses in
 4. User asks a question; backend interprets intent, transforms data, returns new chart/answer.
 
 ## Tech Stack Options
-- **Frontend**: React + TypeScript, Next.js or Vite; UI lib (Mantine/Chakra/Tailwind);
+- **Frontend**: React + TypeScript, REACT Vite; UI lib (/Tailwind);
   charts: Vega-Lite (via react-vega) or Plotly.
-- **Backend**: Python with **Streamlit** for the UI framework and **Pydantic-AI** for agent orchestration. 
-  - Data processing: Pandas/Polars
-  - Reference implementation: [Building a Data Analyst Agent with Streamlit and Pydantic-AI](https://medium.com/data-science-collective/building-a-data-analyst-agent-with-streamlit-and-pydantic-ai-step-by-step-guide-part-1-6403fd2ec243)
-- **Insight/LLM**: OpenAI-compatible API or local model via server; prompt templates; guardrails managed through Pydantic-AI.
+- **Backend**: Node.js + Express + TypeScript
+  - Data processing: danfojs (pandas-like for JavaScript)
+  - CSV parsing: csv-parser or papaparse
+  - Validation: zod or joi
+  - Environment: dotenv
+  - **Alternative**: Python with Streamlit + Pydantic-AI ([reference](https://medium.com/data-science-collective/building-a-data-analyst-agent-with-streamlit-and-pydantic-ai-step-by-step-guide-part-1-6403fd2ec243))
+- **Insight/LLM**: OpenAI-compatible API or local model via server; prompt templates.
 - **Storage (optional/ephemeral)**: In-memory or temp files; S3-like for larger files if needed.
 
 ## Data Handling & Security
@@ -92,12 +98,6 @@ Build an AI data analyst assistant that accepts user-provided CSVs, converses in
 - Chat with a small set of intents: filter, group, aggregate, sort, time resample.
 - Export PNG and markdown report.
 
-## Milestones & Timeline
-- M1: Skeleton app – upload, preview, simple chart render (1 week).
-- M2: Profiling + chart recommendations (1–2 weeks).
-- M3: Insight summary v1 (1 week).
-- M4: Chat intents (filter/group/aggregate) (2 weeks).
-- M5: Polishing: export, error states, empty states, docs (1 week).
 
 ## Risks & Mitigations
 - Messy/large CSVs -> streaming parse, robust type inference, user override.
