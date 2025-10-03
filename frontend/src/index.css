@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Radiant pink & lilac bloom with aqua accents */
+  --bg: radial-gradient(1200px 600px at 15% 15%, rgba(255, 99, 171, 0.35), transparent 60%),
+        radial-gradient(1000px 700px at 85% 20%, rgba(186, 104, 200, 0.30), transparent 60%),
+        radial-gradient(900px 500px at 25% 85%, rgba(72, 207, 173, 0.22), transparent 60%),
+        linear-gradient(180deg, #141024, #141024);
+}
+
+html, body, #root { height: 100%; }
+
+body {
+  background: var(--bg);
+}
+
+.glass {
+  @apply bg-white/25 dark:bg-white/25 backdrop-blur-xl border border-white/30 shadow-glow rounded-2xl;
+}
+
+.thin-scroll::-webkit-scrollbar { height: 8px; width: 8px; }
+.thin-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 9999px; }
