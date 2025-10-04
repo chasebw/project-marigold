@@ -53,6 +53,22 @@ export default function App() {
     return keys[0]
   }
 
+  const chartConfig = {
+    background: '#fef5f9',
+    view: { stroke: 'rgba(255,192,203,0.3)' },
+    axis: {
+      gridColor: 'rgba(255,192,203,0.2)',
+      domainColor: 'rgba(255,192,203,0.4)',
+      tickColor: 'rgba(255,192,203,0.4)',
+      labelColor: '#8b5a7d',
+      titleColor: '#6b4968',
+    },
+    legend: {
+      labelColor: '#8b5a7d',
+      titleColor: '#6b4968',
+    },
+  }
+
   function buildSpec(data: Row[], type: typeof chart): VisualizationSpec {
     switch (type) {
       case 'bar': {
@@ -61,6 +77,7 @@ export default function App() {
         const yField = data.length ? (getFirstNumericFields(values)[0] ?? 'value') : 'value'
         return {
           $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+          config: chartConfig,
           data: { values },
           mark: { type: 'bar', cornerRadius: 6, tooltip: true },
           encoding: {
@@ -79,6 +96,7 @@ export default function App() {
         const y = nums[1] ?? nums[0] ?? 'y'
         return {
           $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+          config: chartConfig,
           data: { values },
           mark: { type: 'line', point: true, tooltip: true },
           encoding: {
@@ -98,6 +116,7 @@ export default function App() {
         const colorField = data.length ? getFirstCategoricalField(values) : 'g'
         return {
           $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+          config: chartConfig,
           data: { values },
           mark: { type: 'point', tooltip: true },
           encoding: {
@@ -115,6 +134,7 @@ export default function App() {
         const x = nums[0] ?? 'v'
         return {
           $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+          config: chartConfig,
           data: { values },
           mark: { type: 'bar', tooltip: true },
           encoding: {
@@ -142,6 +162,7 @@ export default function App() {
         }
         return {
           $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+          config: chartConfig,
           data: { values },
           mark: { type: 'boxplot' },
           encoding,
