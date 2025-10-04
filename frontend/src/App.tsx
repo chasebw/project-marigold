@@ -68,8 +68,8 @@ export default function App() {
             y: { field: yField, type: 'quantitative' },
             color: { field: xField, type: 'nominal' },
           },
-          width: 600,
-          height: 340,
+          width: 340,
+          height: 240,
         }
       }
       case 'line': {
@@ -86,8 +86,8 @@ export default function App() {
             y: { field: y, type: 'quantitative' },
             color: { value: '#8ab4ff' },
           },
-          width: 600,
-          height: 340,
+          width: 340,
+          height: 240,
         }
       }
       case 'scatter': {
@@ -105,8 +105,8 @@ export default function App() {
             y: { field: y, type: 'quantitative' },
             color: colorField ? { field: colorField, type: 'nominal' } : { value: '#ffd166' },
           },
-          width: 600,
-          height: 340,
+          width: 340,
+          height: 240,
         }
       }
       case 'hist': {
@@ -122,8 +122,8 @@ export default function App() {
             y: { aggregate: 'count', type: 'quantitative' },
             color: { value: '#ff7ab6' },
           },
-          width: 600,
-          height: 340,
+          width: 340,
+          height: 240,
         }
       }
       case 'box': {
@@ -145,8 +145,8 @@ export default function App() {
           data: { values },
           mark: { type: 'boxplot' },
           encoding,
-          width: 600,
-          height: 340,
+          width: 340,
+          height: 240,
         }
       }
     }
@@ -201,9 +201,11 @@ export default function App() {
                 </button>
               </div>
             </div>
-            <div className="h-[360px] w-full">
+            <div className="h-[360px] w-full overflow-auto thin-scroll">
               {rows.length > 0 ? (
-                <VegaLite spec={buildSpec(rows, chart)} actions={false} />
+                <div className="flex items-center justify-center">
+                  <VegaLite spec={buildSpec(rows, chart)} actions={false} />
+                </div>
               ) : (
                 <div className="flex items-center justify-center h-full text-white/60">
                   <p>No data loaded. Click "Load Sample Data" or upload a CSV.</p>
