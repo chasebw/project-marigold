@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+/* Global base styles */
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply font-sans text-neutral-800 bg-neutral-50 leading-relaxed;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-neutral-900 tracking-tight;
+  }
+}
+
+/* Utility containers */
+.page-container {
+  @apply max-w-6xl mx-auto px-6;
+}
+
+.card {
+  @apply bg-white border border-neutral-200 rounded-xl shadow-sm;
+}
+
+.card-soft {
+  @apply bg-white border border-neutral-200/70 rounded-xl;
+}
+
+.muted {
+  @apply text-neutral-500;
+}
+
+/* Gen Z / Sassy vibes */
+@layer components {
+  .gradient-text {
+    background: linear-gradient(90deg, #7c3aed, #06b6d4, #f59e0b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-xl text-white font-medium transition;
+    background: linear-gradient(135deg, #7c3aed, #06b6d4);
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
+  }
+  .btn-primary:hover { filter: brightness(1.05); }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-xl border border-neutral-300 bg-white hover:bg-neutral-50 text-neutral-900;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full border;
+    border-color: rgba(124, 58, 237, 0.25);
+    background: rgba(124, 58, 237, 0.06);
+    color: #7c3aed;
+  }
+  .glass {
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+  .divider {
+    @apply h-px w-full my-6 bg-gradient-to-r from-transparent via-neutral-200 to-transparent;
+  }
+}
